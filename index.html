@@ -9,6 +9,29 @@
   </style>
   <body>
     Welcome to my webpage!
-    <form action="?place=%s" method="get"><input placeholder="/page"></form>
+    <label for="mySearch">Search:</label>
+    <input type="search" id="mySearch" name="q" placeholder="Enter search term">
+    <button onclick="searchFunction()">Search</button>
+    
+    <script>
+    function searchFunction() {
+      const searchTerm = document.getElementById("mySearch").value;
+      if (searchTerm) {
+          console.log(`Searching for: ${searchTerm}`);
+          // In a real application, you would use the 'searchTerm' 
+          // to filter results or send it to a server for processing.
+          // For this example, we'll just log the term to the console.
+      } else {
+      console.log("Please enter a search term.");
+      }
+    }
+
+    // Add event listener for the 'search' event (triggered by pressing Enter or clicking the search icon)
+    document.getElementById("mySearch").addEventListener("search", () => {
+        searchFunction();
+    });
+    </script>
+    
+    </body>
   </body>
 </html>
