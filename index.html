@@ -26,12 +26,29 @@
       }
     }
 
-    // Add event listener for the 'search' event (triggered by pressing Enter or clicking the search icon)
-    document.getElementById("mySearch").addEventListener("search", () => {
-        searchFunction();
-    });
+        // Add event listener for the 'search' event (triggered by pressing Enter or clicking the search icon)
+        document.getElementById("mySearch").addEventListener("search", () => {
+            searchFunction();
+        });
+        </script>
+    <script>
+      newTab.onload = function() {
+        const doc = newTab.document;
+        doc.body.innerHTML = `
+          <ul>
+            <li class="item">Apple</li>
+            <li class="item">Banana</li>
+            <li class="item">Orange</li>
+            <li class="item">Grape</li>
+          </ul>
+        `;
+      
+        const items = doc.querySelectorAll('.item');
+        const filteredItems = Array.from(items).filter(item => item.textContent.includes('a'));
+      
+        doc.body.innerHTML = '<ul>' + filteredItems.map(item => item.outerHTML).join('') + '</ul>';
+      };
     </script>
-    
     </body>
   </body>
 </html>
