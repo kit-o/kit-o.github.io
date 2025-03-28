@@ -18,6 +18,23 @@
       const searchTerm = document.getElementById("mySearch").value;
       if (searchTerm) {
           console.log(`Searching for: ${searchTerm}`);
+                const newTab = window.open('about:blank', '_blank');
+        newTab.onload = function() {
+          const doc = newTab.document;
+          doc.body.innerHTML = `
+            <ul>
+              <li class="item">Apple</li>
+              <li class="item">Banana</li>
+              <li class="item">Orange</li>
+              <li class="item">Grape</li>
+            </ul>
+          `;
+        
+          const items = doc.querySelectorAll('.item');
+          const filteredItems = Array.from(items).filter(item => item.textContent.includes('a'));
+        
+          doc.body.innerHTML = '<ul>' + filteredItems.map(item => item.outerHTML).join('') + '</ul>';
+        };
           // In a real application, you would use the 'searchTerm' 
           // to filter results or send it to a server for processing.
           // For this example, we'll just log the term to the console.
