@@ -15,11 +15,27 @@
     
     <script>
     function searchFunction() {
-      const searchTerm = document.getElementById("mySearch").value;
-      if (searchTerm) {
-          console.log(`Searching for: ${searchTerm}`);
-          browser.find.find(searchTerm);
+      const fs = require('fs');
+
+      // Read the JSON file
+      fs.readFile('catolog.json', 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      
+        // Parse the JSON data
+        const jsonData = JSON.parse(data);
+      
+        // Use setTimeout to delay the search
+        setTimeout(function() {
+          // Use the find method to search for an object with the name 'John Doe'
+          const result = jsonData.find(item => item.name === 'John Doe');
           
+          // Log the result
+          console.log(result);
+        }, 1000);
+      });
       } else {
       console.log("Please enter a search term.");
       }
