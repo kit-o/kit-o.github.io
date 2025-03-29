@@ -18,9 +18,8 @@
       const searchTerm = document.getElementById("mySearch").value;
       if (searchTerm) {
           console.log(`Searching for: ${searchTerm}`);
-          setTimeout(function() {
-            find(searchTerm);
-          }, 1000);
+          find(searchTerm);
+          
       } else {
       console.log("Please enter a search term.");
       }
