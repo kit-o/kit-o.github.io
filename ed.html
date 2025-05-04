@@ -46,7 +46,7 @@
   }
 
   // Mix the list using our secret seed (345642)
-  seededShuffle(encrypted, 11235813);
+  seededShuffle(encrypted, prompt("Seed (number): "));
 
   // These will hold the secret code for encrypting and decrypting
   const encryptMap = {};
