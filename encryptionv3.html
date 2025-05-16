@@ -1,0 +1,106 @@
+<html><head>
+  <title>Secret Message Machine</title>
+  <style>
+    body { font-family: Verdana, sans-serif; padding: 20px; }
+    textarea { font-family: Verdana;border-radius:20px; width: 100%; height: 100px; padding: 10px; font-size: 16px; margin-top: 10px; background-color: #f4f4f4; border:none;outline:none;}
+    button { border:none;outline:none;border-radius:20px;padding: 10px 20px; margin-top: 10px; font-size: 16px; }
+    button:hover { border:none;outline:none;border-radius:20px;padding: 10px 20px; margin-top: 10px; font-size: 28px; }
+    .output { border-radius:20px;margin-top: 20px; background-color: #f4f4f4; padding: 10px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+<h2>Secret Message Machine</h2>
+
+<!-- This is where you type your message -->
+<label for="message">Type your message below:</label>
+<textarea id="message" placeholder="Write your message here..."></textarea>
+
+<!-- These buttons will let you encrypt or decrypt the message -->
+<br>
+<button onclick="encrypt()">Encrypt</button>
+<button onclick="decrypt()">Decrypt</button>
+<a href="https://encryptdecrypt-14507492.codehs.me/legacy"><button>Legacy Edition</button></a>
+
+<!-- This is where we show the result -->
+<h3>Result:</h3>
+<div class="output" id="outputText">
+</div>
+<button onclick="copyText()">Copy Text</button>
+
+<script>
+
+
+// Example usage:
+
+  // This is our list of all the letters, numbers, and symbols we can use
+  const original = [..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,!?@#$%^&*()<>/;:-_+=[]{}😀😃😄😁😆😅😂🤣🥲🥹😇🙂🙃😉😌😋😛😝😜🤪🤨🧐🤓😎🥸🤩🥳🙂️😏😒🙂️😞😔😟😫😩🥺😢😭😮😤😠😡🤯😳🥵🥶😱😨😰😥😓🫣🤗🫡🤔🫢🤭🤫🤥😶😶️😐😑😬🫨🫠🙄😯😦😧😮😲🥱"];
+
+  // We make a copy of the list so we can mix it up (shuffle it)
+  const encrypted = [...original];
+
+  // This function mixes up the list in the same way every time using a secret number (seed)
+  function seededShuffle(array, seed) {
+    function random() {
+      const x = Math.sin(seed++) * 10000;
+      return x - Math.floor(x); // Gives us a "random-ish" number
+    }
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Swaps two characters
+    }
+  }
+
+  // Mix the list using our secret seed (345642)
+  seededShuffle(encrypted, prompt("Seed (number): "));
+
+  // These will hold the secret code for encrypting and decrypting
+  const encryptMap = {};
+  const decryptMap = {};
+
+  // Fill in the secret code maps
+  for (let i = 0; i < original.length; i++) {
+    encryptMap[original[i]] = encrypted[i]; // How to change letters into code
+    decryptMap[encrypted[i]] = original[i]; // How to turn code back into letters
+  }
+
+  // This function changes your message into secret code
+  function encrypt() {
+    const input = document.getElementById("message").value; // Get what you typed
+    let eMesgs = ""; // This will hold the encrypted message
+
+    for (let char of input) {
+      eMesgs += encryptMap[char] || char; // Change each letter using the secret code
+    }
+
+    // Show the secret message
+    document.getElementById("outputText").textContent = "" + eMesgs;
+    input.value = "";
+  }
+
+  // This function changes secret code back into the real message
+  function decrypt() {
+    const input = document.getElementById("message").value; // Get the secret message
+    let dMesgs = ""; // This will hold the decrypted message
+
+    for (let char of input) {
+      dMesgs += decryptMap[char] || char; // Turn each code character back into a letter
+    }
+
+    // Show the real message
+    document.getElementById("outputText").textContent = "" + dMesgs;
+    input.value = "";
+  }
+    async function copyText() {
+      try {
+        await navigator.clipboard.writeText(document.getElementById("outputText").textContent);
+        console.log('Text copied to clipboard');
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+      }
+    }  
+  
+</script>
+v3
+
+</body></html>
