@@ -1,4 +1,53 @@
 {
-  "name":"main page",
-  "URL":"https://kit-o.github.io"
+  {
+    "name":"main page",
+    "URL":"https://kit-o.github.io"",
+    "hasalternateID?":true,
+    "alternateID":["https://kit-o.github.io/index","https://kit-o.github.io/index.html"],
+  }
+  {
+    "name":"about page",
+    "URL":"https://kit-o.github.io/about",
+    "hasalternateID?":true,
+    "alternateID":["https://kit-o.github.io/about.html"],
+  }
+  {
+    "name":"Encrypt/Decrypt v3",
+    "URL":"https://kit-o.github.io/encryptionv3",
+    "hasalternateID?":true,
+    "alternateID":["https://kit-o.github.io/encryptionv3.html"],
+  }
+  {
+    "name":"Encrypt/Decrypt v1",
+    "URL":"https://kit-o.github.io/ed",
+    "hasalternateID?":true,
+    "alternateID":["https://kit-o.github.io/ed.html"],
+  }
+  {
+    "name":"Catolog",
+    "URL":"https://kit-o.github.io/catolog",
+    "hasalternateID?":true,
+    "alternateID":["https://kit-o.github.io/catolog.json"],
+  }
+  {
+    "name":"Config",
+    "URL":"https://kit-o.github.io/_config.yaml",
+    "hasalternateID?":false,
+
+  }
+  {
+    "name":"meh.html",
+    "URL":"https://kit-o.github.io/meh",
+    "hasalternateID?":true,
+    "alternateID":["https://kit-o.github.io/meh.html"],
+  }
+  {
+    "name":"README",
+    "URL":"https://kit-o.github.io/README",
+    "hasalternateID?":true,
+    "alternateID":["https://kit-o.github.io/README.md"],
+  }
+
 }
+
+
