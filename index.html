@@ -1,70 +1,104 @@
 <html>
   <head>
-    <title>Kit-O's Page</title>
+    <title>Home</title>
   </head>
   <style>
     body {
-      font-family:monospace;
+      font-family:Verdana;
+    }
+    button {
+      outline:none;
+      border:none;
+      border-radius:20px;
+      padding:5px;
+      
     }
   </style>
   <body>
-    Welcome to my webpage!
-    <a href="https://kit-o.github.io/ed.html"><button>Encrypt/Decrypt</button></a>
+    <h1>Welcome!</h1>
+    
 
-    <script>
-    function searchFunction() {
-      const searchTerm = document.getElementById("mySearch").value;
-      if (searchTerm) {
-        const fs = require('fs');
-  
-        // Read the JSON file
-        fs.readFile('catolog.json', 'utf8', (err, data) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-        
-          // Parse the JSON data
-          const jsonData = JSON.parse(data);
-        
-          // Use setTimeout to delay the search
-          setTimeout(function() {
-            // Use the find method to search for an object with the name 'John Doe'
-            const result = jsonData.find(item => item.name === 'John Doe');
-            
-            // Log the result
-            console.log(result);
-          }, 1000);
-        });
-      } else {
-      console.log("Please enter a search term.");
-      }
+  </body>
+  <script>
+    import React from 'react';
+import styled from 'styled-components';
+
+const Button = () => {
+  return (
+    <StyledWrapper>
+      <button className="button">
+        Encryption Decryption
+        <div className="arrow">›</div>
+      </button>
+    </StyledWrapper>
+  );
+}
+
+const StyledWrapper = styled.div`
+  .button {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 0px 15px;
+    background-color: rgb(66, 66, 66);
+    border-radius: 10px;
+    color: white;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    transition-duration: .2s;
+  }
+
+  .bell {
+    width: 13px;
+  }
+
+  .bell path {
+    fill: rgb(0, 206, 62);
+  }
+
+  .arrow {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button:hover {
+    background-color: rgb(77, 77, 77);
+    transition-duration: .2s;
+  }
+
+  .button:hover .arrow {
+    animation: slide-right .6s ease-out both;
+  }
+  /* arrow animation */
+  @keyframes slide-right {
+    0% {
+      transform: translateX(-10px);
+      opacity: 0;
     }
 
-        // Add event listener for the 'search' event (triggered by pressing Enter or clicking the search icon)
-        document.getElementById("mySearch").addEventListener("search", () => {
-            searchFunction();
-        });
-        </script>
-    <script>
-      newTab.onload = function() {
-        const doc = newTab.document;
-        doc.body.innerHTML = `
-          <ul>
-            <li class="item">Apple</li>
-            <li class="item">Banana</li>
-            <li class="item">Orange</li>
-            <li class="item">Grape</li>
-          </ul>
-        `;
-      
-        const items = doc.querySelectorAll('.item');
-        const filteredItems = Array.from(items).filter(item => item.textContent.includes('a'));
-      
-        doc.body.innerHTML = '<ul>' + filteredItems.map(item => item.outerHTML).join('') + '</ul>';
-      };
-    </script>
-    <iframe src="/catolog.json"></iframe>
-    </body>
-  </body>
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .button:active {
+    transform: translate(1px , 1px);
+    transition-duration: .2s;
+  }`;
+
+export default Button;
+
+  </script>
+  
 </html>
