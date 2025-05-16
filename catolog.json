@@ -25,9 +25,9 @@
   }
   {
     "name":"Catolog",
-    "URL":"https://kit-o.github.io/catolog",
-    "hasalternateID?":true,
-    "alternateID":["https://kit-o.github.io/catolog.json"],
+    "URL":"https://kit-o.github.io/catolog.json",
+    "hasalternateID?":false,
+    "alternateID":[],
   }
   {
     "name":"Config",
@@ -43,9 +43,9 @@
   }
   {
     "name":"README",
-    "URL":"https://kit-o.github.io/README",
-    "hasalternateID?":true,
-    "alternateID":["https://kit-o.github.io/README.md"],
+    "URL":"https://kit-o.github.io/README.md",
+    "hasalternateID?":false,
+    "alternateID":[],
   }
 
 }
