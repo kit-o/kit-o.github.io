@@ -16,26 +16,8 @@
   </style>
   <body>
     <h1>Welcome!</h1>
-    
-
-  </body>
-  <script>
-    import React from 'react';
-import styled from 'styled-components';
-
-const Button = () => {
-  return (
-    <StyledWrapper>
-      <button className="button">
-        Encryption Decryption
-        <div className="arrow">›</div>
-      </button>
-    </StyledWrapper>
-  );
-}
-
-const StyledWrapper = styled.div`
-  .button {
+    <a href="encryptionv3.html"><button>Encryption and Decryption Engine</button></a>
+  <style>.button {
     width: 200px;
     height: 40px;
     display: flex;
@@ -51,15 +33,15 @@ const StyledWrapper = styled.div`
     cursor: pointer;
     transition-duration: .2s;
   }
-
+  
   .bell {
     width: 13px;
   }
-
+  
   .bell path {
     fill: rgb(0, 206, 62);
   }
-
+  
   .arrow {
     position: absolute;
     right: 0;
@@ -70,12 +52,12 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: center;
   }
-
+  
   .button:hover {
     background-color: rgb(77, 77, 77);
     transition-duration: .2s;
   }
-
+  
   .button:hover .arrow {
     animation: slide-right .6s ease-out both;
   }
@@ -85,20 +67,21 @@ const StyledWrapper = styled.div`
       transform: translateX(-10px);
       opacity: 0;
     }
-
+  
     100% {
       transform: translateX(0);
       opacity: 1;
     }
   }
-
+  
   .button:active {
     transform: translate(1px , 1px);
     transition-duration: .2s;
-  }`;
+  }
+  </style>
 
-export default Button;
 
-  </script>
+  </body>
+  
   
 </html>
